@@ -109,7 +109,7 @@ button:hover {
 </style>
 <body>
 <header>
-	<h3>JobStudio</h3>
+	<h3>eBuy</h3>
 	<ul>
 		<li><a href="index.html">Home</a></li>
 	</ul>
@@ -117,16 +117,18 @@ button:hover {
 	
 <form action="AddListing" enctype="multipart/form-data" method="post" style="border:1px solid #ccc">
   <div class="container">
-    <h1>Sign Up</h1>
-    <p>Please fill in this form to create an account</p>
+    <p>Please fill in this form to create a listing</p>
     <hr class="new">
 
-    <label for="email"><b>Name of Item</b></label>
-    <input type="text" placeholder="Enter name of item" name="name" required>
+    <label for="email"><b>Name of Seller</b></label>
+    <input type="text" placeholder="Enter your name" name="name" required>
+    
+        <label for="email"><b>Type of item</b></label>
+    <input type="text" placeholder="What category does your item fall under? Eg. Phone, Car" name="category" required>
 
     
     <label for="email"><b>Description</b></label>
-    <input type="text" placeholder="Give a small description about your item" name="desc" required>
+    <input type="text" placeholder="Give name and small description about your item" name="desc" required>
     
     <label for="email"><b>Cost</b></label>
     <input type="text" placeholder="Enter desired cost of item" name="cost" required>

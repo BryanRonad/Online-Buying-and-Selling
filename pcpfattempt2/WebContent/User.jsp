@@ -2,7 +2,8 @@
     pageEncoding="ISO-8859-1"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.util.List"%>
-<%@page import="bean.Listing"%>
+<%@page import="bean.*"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -25,7 +26,7 @@ function myFunction1() {
   tr = table.getElementsByTagName("tr");
   // Loop through all table rows, and hide those who don't match the search query
   for (i = 0; i < tr.length; i++) {
-    td = tr[i].getElementsByTagName("td")[1];
+    td = tr[i].getElementsByTagName("td")[2];
     if (td) {
       txtValue = td.textContent || td.innerText;
       if (txtValue.toUpperCase().indexOf(filter) > -1) {
@@ -45,7 +46,7 @@ function myFunction2() {
 	  tr = table.getElementsByTagName("tr");
 	  // Loop through all table rows, and hide those who don't match the search query
 	  for (i = 0; i < tr.length; i++) {
-	    td = tr[i].getElementsByTagName("td")[4];
+	    td = tr[i].getElementsByTagName("td")[5];
 	    if (td) {
 	      txtValue = td.textContent || td.innerText;
 	      if (txtValue.toUpperCase().indexOf(filter) > -1) {
@@ -169,7 +170,7 @@ input[type=text]{
 <div class="wrapper"><center>
 <!-- <label for="accToName"><b><h3>SEARCH PRODUCTS</label></h3><br> -->
 
-<input type="text" id="myInput1" onkeyup="myFunction1()" placeholder="Search according to Name">
+<input type="text" id="myInput1" onkeyup="myFunction1()" placeholder="Search according to category">
 
 <input type="text" id="myInput2" onkeyup="myFunction2()" placeholder="Search according to Location">
 </center>
@@ -179,6 +180,7 @@ input[type=text]{
 		<tr class="header">
 			<th style="width:5%;" ><b>ID</b></th>
 			<th style="width:10%;"><b>Name of seller</b></th>
+			<th style="width:10%;"><b>Category</b></th>
 			<th style="width:30%;"><b>Description</b></th>
 			<th style="width:10%;"><b>Cost</b></th>
 			<th style="width:30%;"><b>Location</b></th>
@@ -193,6 +195,7 @@ input[type=text]{
 		<tr>
 			<td><%=j.getid()%></td>
 			<td><%=j.getname()%></td>
+			<td><%=j.getcategory()%></td>
 			<td><%=j.getdesc()%></td>
 			<td><%=j.getcost()%></td>
 			<td><%=j.getlocation()%></td>

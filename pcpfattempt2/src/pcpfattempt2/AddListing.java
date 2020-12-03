@@ -25,17 +25,17 @@ public class AddListing extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		PrintWriter p = response.getWriter();
 		response.setContentType("text/html");
-		InputStream inputStream = null;
 		String name = request.getParameter("name");
 	 	String desc = request.getParameter("desc");
 	 	String cost = request.getParameter("cost");
+	 	String category = request.getParameter("category");
 	 	String location = request.getParameter("location");
 	 	String mobile = request.getParameter("mobile");
 	 	Part part = request.getPart("image");
 	 	
 	 	UserDao dao=new UserDao();
 	 	
-	 	if(dao.addListing(name,desc,cost,location,mobile,part.getInputStream())==1) {
+	 	if(dao.addListing(name,category,desc,cost,location,mobile,part.getInputStream())==1) {
 	 		p.println("<script>alert('Listing added successfully.')</script>");
 			response.setHeader("Refresh", "1;index.html");
 	 	}else {

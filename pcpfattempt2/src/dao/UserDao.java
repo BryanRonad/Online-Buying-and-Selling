@@ -35,17 +35,18 @@ public class UserDao {
 		return 0;
 	}
 	
-	public int addListing(String name, String desc, String cost, String location, String mobile, InputStream image) {
+	public int addListing(String name, String category, String desc, String cost, String location, String mobile, InputStream image) {
 		try {
 			con = SqlConnection.dbConnector();
-			String query = "insert into listing(name,description,cost,location,mobile,image) values(?,?,?,?,?,?)";
+			String query = "insert into listing(name,category,description,cost,location,mobile,image) values(?,?,?,?,?,?,?)";
 			PreparedStatement st = con.prepareStatement(query);
 			st.setString(1, name);
-			st.setString(2, desc);
-			st.setString(3, cost);
-			st.setString(4, location);
-			st.setString(5, mobile);
-			st.setBlob(6, image);
+			st.setString(2, category);
+			st.setString(3, desc);
+			st.setString(4, cost);
+			st.setString(5, location);
+			st.setString(6, mobile);
+			st.setBlob(7, image);
 			int i = st.executeUpdate();
 			return i;
 		} catch (Exception e) {
@@ -66,6 +67,7 @@ public class UserDao {
 				Listing j = new Listing();
 				j.setid(resultSet.getString("id"));
 				j.setname(resultSet.getString("name"));
+				j.setcategory(resultSet.getString("category"));
 				j.setdesc(resultSet.getString("description"));
 				j.setcost(resultSet.getString("cost"));
 				j.setlocation(resultSet.getString("location"));

@@ -5,6 +5,7 @@ public class Listing {
 
 	private String id;
 	private String name;
+	private String category;
 	private String desc;
 	private String cost;
 	private String location;
@@ -20,8 +21,17 @@ public class Listing {
 	public String getname() {
 		return name;
 	}
+	
 	public void setname(String name) {
 		this.name=name;
+	}
+	
+	public String getcategory() {
+		return category;
+	}
+	
+	public void setcategory(String category) {
+		this.category=category;
 	}
 	
 	public String getdesc() {
